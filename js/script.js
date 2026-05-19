@@ -3,6 +3,10 @@ const translations = {
     bg: {
         title: "Къща за гости Фенер",
         subtitle: "Поморие, България",
+        "nav-about": "За нас",
+        "nav-amenities": "Удобства",
+        "nav-gallery": "Галерия",
+        "nav-contact": "Контакти",
         "about-title": "За нас",
         "about-text": "Къща за гости Фенер се намира в старата част на град Поморие в непосредствена близост до центъра на града. Разположена е на главната улица Княз Борис I. 50 метра делят Къща за гости Фенер от южния бряг и 500 метра от Северния плаж. В близост до Къща за гости Фенер има хранителен магазин с банкомат, ресторанти. Предлагаме различни типове стаи, които можете да разгледате в галерия. На всички гости предлагаме безплатен Wi-Fi интернет, климатик, тераса, LCD телевизор, кана за топла вода, самостоятелен санитарен възел. Къщата за гости Фенер, Поморие разполага с голяма обща тераса с изглед към морето, оборудвана с мивка и кухня. Предлагаме трансфер до Несебър, Слънчев бряг, Бургас и летището. Къща за гости Фенер, Поморие работи целогодишно. За потвърдена се счита резервация след заплатено капаро за нея. Очакваме ви!",
         "amenities-title": "Удобства",
@@ -23,6 +27,10 @@ const translations = {
     en: {
         title: "Guest House Fener",
         subtitle: "Pomorie, Bulgaria",
+        "nav-about": "About",
+        "nav-amenities": "Amenities",
+        "nav-gallery": "Gallery",
+        "nav-contact": "Contact",
         "about-title": "About Us",
         "about-text": "Guest House Fener is located in the old part of Pomorie town in close proximity to the city center. It is situated on the main street Knyaz Boris I. Guest House Fener is 50 meters from the southern beach and 500 meters from the North Beach. Near Guest House Fener there is a grocery store with ATM, restaurants. We offer different types of rooms that you can view in the gallery. We offer all guests free Wi-Fi internet, air conditioning, terrace, LCD TV, kettle, private bathroom. Guest House Fener, Pomorie has a large shared terrace with sea view, equipped with sink and kitchen. We offer transfer to Nessebar, Sunny Beach, Burgas and the airport. Guest House Fener, Pomorie operates year-round. A reservation is considered confirmed after a deposit is paid. We are waiting for you!",
         "amenities-title": "Amenities",
@@ -43,6 +51,10 @@ const translations = {
     ru: {
         title: "Гостевой дом Фенер",
         subtitle: "Поморие, Болгария",
+        "nav-about": "О нас",
+        "nav-amenities": "Удобства",
+        "nav-gallery": "Галерея",
+        "nav-contact": "Контакты",
         "about-title": "О нас",
         "about-text": "Гостевой дом Фенер расположен в старой части города Поморие в непосредственной близости от центра города. Он находится на главной улице Князь Борис I. Гостевой дом Фенер находится в 50 метрах от южного пляжа и в 500 метрах от Северного пляжа. Рядом с гостевым домом Фенер есть продуктовый магазин с банкоматом, рестораны. Мы предлагаем различные типы номеров, которые вы можете посмотреть в галерее. Всем гостям мы предлагаем бесплатный Wi-Fi интернет, кондиционер, террасу, LCD телевизор, чайник, отдельную ванную комнату. Гостевой дом Фенер, Поморие имеет большую общую террасу с видом на море, оборудованную раковиной и кухней. Мы предлагаем трансфер до Несебра, Солнечного берега, Бургаса и аэропорта. Гостевой дом Фенер, Поморие работает круглогодично. Бронирование считается подтвержденным после оплаты депозита. Ждем вас!",
         "amenities-title": "Удобства",
@@ -72,6 +84,7 @@ let currentPhotoIndex = 0;
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     initLanguageSwitcher();
+    initNavigation();
     loadGallery();
     initLightbox();
 });
@@ -106,9 +119,62 @@ function switchLanguage(lang) {
     });
 }
 
+// Navigation Menu
+function initNavigation() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    
+    // Smooth scroll
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Active section highlighting
+    function updateActiveNav() {
+        let current = '';
+        const scrollPosition = window.scrollY + 150;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        // If we're near the bottom of the page, highlight the last section
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+            current = sections[sections.length - 1].getAttribute('id');
+        }
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+}
+
 // Load Gallery
 function loadGallery() {
-    const gallery = document.getElementById('gallery');
+    const gallery = document.getElementById('gallery-grid');
     
     for (let i = 1; i <= photoCount; i++) {
         const photoNum = String(i).padStart(2, '0');
