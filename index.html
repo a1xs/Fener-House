@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Къща за гости Фенер - Поморие</title>
+    <meta name="description" content="Къща за гости Фенер в старата част на Поморие. Близо до плажа, с Wi-Fi, климатик и тераса с изглед към морето.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="bg">БГ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <img src="images/header.jpg" alt="Guest House Fener" class="header-image">
+        <div class="header-overlay">
+            <h1 class="header-title" data-translate="title">Къща за гости Фенер</h1>
+            <p class="header-subtitle" data-translate="subtitle">Поморие, България</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section class="about-section">
+            <h2 data-translate="about-title">За нас</h2>
+            <p class="about-text" data-translate="about-text">
+                Къща за гости Фенер се намира в старата част на град Поморие в непосредствена близост до центъра на града. Разположена е на главната улица Княз Борис I. 50 метра делят Къща за гости Фенер от южния бряг и 500 метра от Северния плаж. В близост до Къща за гости Фенер има хранителен магазин с банкомат, ресторанти. Предлагаме различни типове стаи, които можете да разгледате в галерия. На всички гости предлагаме безплатен Wi-Fi интернет, климатик, тераса, LCD телевизор, кана за топла вода, самостоятелен санитарен възел. Къщата за гости Фенер, Поморие разполага с голяма обща тераса с изглед към морето, оборудвана с мивка и кухня. Предлагаме трансфер до Несебър, Слънчев бряг, Бургас и летището. Къща за гости Фенер, Поморие работи целогодишно. За потвърдена се счита резервация след заплатено капаро за нея. Очакваме ви!
+            </p>
+        </section>
+
+        <!-- Amenities Section -->
+        <section class="amenities-section">
+            <h2 data-translate="amenities-title">Удобства</h2>
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <span class="amenity-icon">📶</span>
+                    <span data-translate="wifi">Безплатен Wi-Fi</span>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-icon">❄️</span>
+                    <span data-translate="ac">Климатик</span>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-icon">📺</span>
+                    <span data-translate="tv">LCD телевизор</span>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-icon">🏖️</span>
+                    <span data-translate="beach">50м до плажа</span>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-icon">🍳</span>
+                    <span data-translate="kitchen">Обща кухня</span>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-icon">🚗</span>
+                    <span data-translate="transfer">Трансфер</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <h2 data-translate="gallery-title">Галерия</h2>
+            <div class="gallery-grid" id="gallery">
+                <!-- Photos will be loaded by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 data-translate="contact-title">Контакти</h2>
+            <div class="contact-info">
+                <p><strong data-translate="address-label">Адрес:</strong> <span data-translate="address">ул. Княз Борис I, Поморие, България</span></p>
+                <p><strong data-translate="phone-label">Телефон:</strong> <a href="tel:+359">+359 ...</a></p>
+                <p><strong data-translate="email-label">Email:</strong> <a href="mailto:info@fener-pomorie.com">info@fener-pomorie.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 <span data-translate="title">Къща за гости Фенер</span>. <span data-translate="rights">Всички права запазени.</span></p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <button class="lightbox-prev">&#10094;</button>
+        <button class="lightbox-next">&#10095;</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
