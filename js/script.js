@@ -15,7 +15,7 @@ const translations = {
         "gallery-title": "Галерия",
         "contact-title": "Контакти",
         "address-label": "Адрес:",
-        "address": "ул. Княз Борис I, Поморие, България",
+        "address": "ул. Булаир 6, Поморие, България",
         "phone-label": "Телефон:",
         "email-label": "Email:",
         "rights": "Всички права запазени."
@@ -35,7 +35,7 @@ const translations = {
         "gallery-title": "Gallery",
         "contact-title": "Contact",
         "address-label": "Address:",
-        "address": "Knyaz Boris I Street, Pomorie, Bulgaria",
+        "address": "Bulair Street 6, Pomorie, Bulgaria",
         "phone-label": "Phone:",
         "email-label": "Email:",
         "rights": "All rights reserved."
@@ -55,7 +55,7 @@ const translations = {
         "gallery-title": "Галерея",
         "contact-title": "Контакты",
         "address-label": "Адрес:",
-        "address": "ул. Князь Борис I, Поморие, Болгария",
+        "address": "ул. Булаир 6, Поморие, Болгария",
         "phone-label": "Телефон:",
         "email-label": "Email:",
         "rights": "Все права защищены."
