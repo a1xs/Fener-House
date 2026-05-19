@@ -385,6 +385,13 @@ section h2 {
     .lang-switcher {
         top: 10px;
         right: 10px;
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
     }
 
     .lightbox-prev,
